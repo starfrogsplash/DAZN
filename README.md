@@ -1,3 +1,7 @@
-# Express-TS-BoilerPlate-TDD
+# Check concurrent Stream Service
 
-TypeScript Express BoilerPlate with TDD
+npm install
+
+npm run start
+
+npm run test

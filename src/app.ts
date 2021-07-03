@@ -1,11 +1,11 @@
 import express from 'express'
 import {json} from 'body-parser'
-import {mainRouter} from './routes/index'
+import {checkStreamRouter} from './routes/mainRoute'
 
 const app = express()
 
 app.use(json())
-app.use(mainRouter)
+app.use(checkStreamRouter)
 
 export {
     app
