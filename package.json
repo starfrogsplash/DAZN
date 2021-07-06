@@ -1,5 +1,5 @@
 {
-  "name": "express-ts-boilerplate",
+  "name": "dazn-stream-check-service",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -21,7 +21,6 @@
     "@types/express": "^4.17.12",
     "@types/jest": "^26.0.23",
     "@types/supertest": "^2.0.11",
-    "axios": "^0.21.1",
     "express": "^4.17.1",
     "jest": "^27.0.6",
     "nodemon": "^2.0.9",

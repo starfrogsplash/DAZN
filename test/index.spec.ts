@@ -1,12 +1,12 @@
 import request from "supertest";
 import {app}from '../src/app'
 
-it('checks default', async()=> {
+it('returns success message when checking for a user with no existing concurrent streams running', async()=> {
     const res1 = await request(app).get('/user1')
     expect(res1.body).toEqual('Success! able to watch stream')
 })
 
-it('checks default endpoint', async()=> {
+it('returns error message when checking for a user with more than 3 existing concurrent streams running', async()=> {
     const resData = await Promise.all([
         request(app).get('/user1'),
         request(app).get('/user1'),
@@ -15,11 +15,11 @@ it('checks default endpoint', async()=> {
       ])
 
     const [res1, res2, res3, res4] = resData
-    expect(res4.body).toEqual('Too many cuncurrent streams')
+    expect(res4.body).toEqual('Error: Too many cuncurrent streams')
 })
 
 
-it('checks default endpoint 2nd user', async()=> {
+it('returns success response for user2 profile', async()=> {
     const resData = await Promise.all([
         request(app).get('/user1'),
         request(app).get('/user2'),

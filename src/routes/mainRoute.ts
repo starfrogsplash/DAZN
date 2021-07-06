@@ -12,7 +12,7 @@ checkStreamRouter.get('/:userId', async (req, res) => {
         userStreamCount[userId]=1
     }
 
-    if(userStreamCount[userId] > 3) return res.status(400).json('Too many cuncurrent streams')
+    if(userStreamCount[userId] > 3) return res.status(400).json('Error: Too many cuncurrent streams')
     res.status(200).json('Success! able to watch stream')
 })
 
