@@ -6,7 +6,14 @@ simple service to check a given's users concurrent streams
 npm install
 
 ## to start
-npm run start
+1. npm run start
+
+this will start the app,
+
+2. then you will need to use a rest client, to hit the endpoint 
+http://localhost:3000/:userId
+
+which takes in a userID
 
 ## to run tests
 npm run test
