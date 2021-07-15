@@ -2,11 +2,16 @@
 
 simple service to check a given's users concurrent streams
 
-## to install
+## Install
+```
 npm install
+```
 
-## to start
+## Running
+
+```
 1. npm run start
+```
 
 this will start the app,
 
@@ -15,5 +20,7 @@ http://localhost:3000/:userId
 
 which takes in a userID
 
-## to run tests
+## Testing
+```
 npm run test
+```
