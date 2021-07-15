@@ -10,23 +10,26 @@ const mockedDatabase = mocked(UserStreams, true)
 it('returns success message when checking for a user with no existing concurrent streams running', async () => {
   mockedDatabase.prototype.getUserStreamCount.mockReturnValue(1)
 
-  const res1 = await request(app).get('/user1')
-  expect(res1.status).toEqual(200)
-  expect(res1.body).toEqual('Success! able to watch stream')
+  const response = await request(app).get('/user1')
+
+  expect(response.status).toEqual(200)
+  expect(response.body).toEqual('Success! able to watch stream')
 })
 
 it('returns success message when checking for a user with no existing concurrent streams running', async () => {
   mockedDatabase.prototype.getUserStreamCount.mockReturnValue(2)
 
-  const res1 = await request(app).get('/user1')
+  const response = await request(app).get('/user1')
 
-  expect(res1.status).toEqual(200)
-  expect(res1.body).toEqual('Success! able to watch stream')
+  expect(response.status).toEqual(200)
+  expect(response.body).toEqual('Success! able to watch stream')
 })
 
 it('returns error message when checking for a user with more than 3 existing concurrent streams running', async () => {
   mockedDatabase.prototype.getUserStreamCount.mockReturnValue(3)
-  const res1 = await request(app).get('/user1')
-  expect(res1.status).toEqual(403)
-  expect(res1.body).toEqual('Forbidden: Too many cuncurrent streams')
+
+  const response = await request(app).get('/user1')
+  
+  expect(response.status).toEqual(403)
+  expect(response.body).toEqual('Forbidden: Too many cuncurrent streams')
 })
